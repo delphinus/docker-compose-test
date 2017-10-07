@@ -1,0 +1,11 @@
+app:
+  build: .
+  ports:
+    - 5000:5000
+  links:
+    - redis
+  volumes:
+    - .:/go/src/app
+  command: sh -c 'cd src/app && go run main.go'
+redis:
+  image: redis
